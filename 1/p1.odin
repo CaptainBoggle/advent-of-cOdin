@@ -15,9 +15,8 @@ main :: proc() {
         digit_index := strings.index_any(line, DIGITS)
         total += 10 * (int(line[digit_index]) - '0')
 
-        reversed := strings.reverse(line)
-        digit_index = strings.index_any(reversed, DIGITS)
-        total += int(reversed[digit_index]) - '0'
+        digit_index = strings.last_index_any(line, DIGITS)
+        total += int(line[digit_index]) - '0'
     }
 
     fmt.printf("Total: %d\n", total)
