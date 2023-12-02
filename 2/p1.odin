@@ -9,12 +9,12 @@ import "core:strings"
 main :: proc() {
     iter := read_input()
     id, total := 0, 0
+    max_red, max_green, max_blue := 0, 0, 0
     illegal_strings := build_illegal_strings()
     for line in strings.split_lines_iterator(&iter) {
         id += 1
         illegal_idx, _ := strings.index_multi(line[strings.index(line, ":"):], illegal_strings)
         if illegal_idx == -1 {
-            fmt.printf("ID: %d\n", id)
             total += id
         }
     }
